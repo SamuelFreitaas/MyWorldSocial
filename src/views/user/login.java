@@ -50,7 +50,7 @@ public class login extends javax.swing.JFrame {
         PainelRoot.setOpaque(false);
         PainelRoot.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnClose.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
+        btnClose.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         btnClose.setForeground(new java.awt.Color(255, 255, 255));
         btnClose.setText("x");
         btnClose.setAlignmentY(0.0F);
@@ -61,14 +61,22 @@ public class login extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnCloseMouseEntered(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCloseMouseExited(evt);
+            }
         });
         PainelRoot.add(btnClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, 20, 30));
 
         psSenha.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         psSenha.setForeground(new java.awt.Color(130, 70, 117));
-        psSenha.setText("jPasswordField1");
+        psSenha.setText("jPasswordF");
         psSenha.setBorder(null);
         psSenha.setOpaque(false);
+        psSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                psSenhaActionPerformed(evt);
+            }
+        });
         PainelRoot.add(psSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 430, 230, -1));
 
         txUserMail.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
@@ -81,31 +89,42 @@ public class login extends javax.swing.JFrame {
                 txUserMailFocusGained(evt);
             }
         });
-        PainelRoot.add(txUserMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 220, 40));
+        PainelRoot.add(txUserMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 220, 30));
 
         lbLinkCriarConta.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
         lbLinkCriarConta.setForeground(new java.awt.Color(102, 102, 102));
         lbLinkCriarConta.setText("Criar nova conta");
-        PainelRoot.add(lbLinkCriarConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, -1, -1));
+        lbLinkCriarConta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lbLinkCriarContaMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lbLinkCriarContaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lbLinkCriarContaMouseExited(evt);
+            }
+        });
+        PainelRoot.add(lbLinkCriarConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 600, -1, -1));
 
         lbEntrar.setFont(new java.awt.Font("Leelawadee UI", 1, 24)); // NOI18N
         lbEntrar.setForeground(new java.awt.Color(130, 70, 117));
         lbEntrar.setText("Entrar");
         PainelRoot.add(lbEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, -1, -1));
 
-        lbUserPass.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        lbUserPass.setFont(new java.awt.Font("Leelawadee UI", 1, 16)); // NOI18N
         lbUserPass.setForeground(new java.awt.Color(102, 102, 102));
         lbUserPass.setText("Senha");
         PainelRoot.add(lbUserPass, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, -1, -1));
 
-        lbUserMail.setFont(new java.awt.Font("Leelawadee UI", 0, 16)); // NOI18N
+        lbUserMail.setFont(new java.awt.Font("Leelawadee UI", 1, 16)); // NOI18N
         lbUserMail.setForeground(new java.awt.Color(102, 102, 102));
         lbUserMail.setText("E-mail");
         PainelRoot.add(lbUserMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         lbTituloLogin.setFont(new java.awt.Font("Leelawadee UI", 1, 48)); // NOI18N
         lbTituloLogin.setForeground(new java.awt.Color(255, 255, 255));
-        lbTituloLogin.setText("<html>\nMyWorld<br>\n<font size=\"5\">Entre. Sinta-se em casa.</font>\n</html>");
+        lbTituloLogin.setText("<html> MyWorld<br> <font size=\"5\">Entre. Sinta-se em casa.</font> </html>");
         PainelRoot.add(lbTituloLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         BtnFazerLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/images/btn_login.png"))); // NOI18N
@@ -141,18 +160,44 @@ public class login extends javax.swing.JFrame {
     }//GEN-LAST:event_BtnFazerLoginMouseExited
 
     private void btnCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseClicked
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_btnCloseMouseClicked
 
     private void btnCloseMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseEntered
-        // TODO add your handling code here:
-        this.btnClose.setForeground(new java.awt.Color(229,215,116));
+        
+        this.btnClose.setForeground(new java.awt.Color(253, 146, 154));
     }//GEN-LAST:event_btnCloseMouseEntered
 
     private void txUserMailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txUserMailFocusGained
         // TODO add your handling code here:
         this.txUserMail.setText("");
     }//GEN-LAST:event_txUserMailFocusGained
+
+    private void btnCloseMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCloseMouseExited
+        
+        this.btnClose.setForeground(new java.awt.Color(255,255,255));
+        
+    }//GEN-LAST:event_btnCloseMouseExited
+
+    private void psSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_psSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_psSenhaActionPerformed
+
+    private void lbLinkCriarContaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkCriarContaMouseClicked
+       cadastro ncadastro = new cadastro();
+        ncadastro.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_lbLinkCriarContaMouseClicked
+
+    private void lbLinkCriarContaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkCriarContaMouseEntered
+        this.lbLinkCriarConta.setForeground(new java.awt.Color(130,70,117));
+    }//GEN-LAST:event_lbLinkCriarContaMouseEntered
+
+    private void lbLinkCriarContaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbLinkCriarContaMouseExited
+        
+        this.lbLinkCriarConta.setForeground(new java.awt.Color(102,102,102));
+        
+    }//GEN-LAST:event_lbLinkCriarContaMouseExited
 
     /**
      * @param args the command line arguments
